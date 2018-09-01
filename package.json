@@ -10,6 +10,7 @@
       "typescript": "3.0.3"
    },
    "dependencies": {
+      "graphql-yoga": "^1.16.2",
       "mongodb": "3.0.8",
       "reflect-metadata": "^0.1.12",
       "typeorm": "0.2.7"
