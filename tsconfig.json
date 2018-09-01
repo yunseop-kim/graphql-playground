@@ -6,7 +6,6 @@
     "sourceMap": true,
     "outDir": "./dist",
     "moduleResolution": "node",
-
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
@@ -21,7 +20,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": false,
     "experimentalDecorators": true,
-    "allowJs": true
+    "allowJs": true,
+    "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules"],
   "include": ["./src/**/*.tsx", "./src/**/*.ts"]
