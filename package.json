@@ -1,27 +1,45 @@
 {
-   "name": "new-typeorm-project",
-   "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
-   "devDependencies": {
-      "@types/bcryptjs": "^2.4.1",
-      "@types/node": "^10.9.4",
-      "gql2ts": "^1.8.2",
-      "nodemon": "^1.18.4",
-      "ts-node": "7.0.1",
-      "tslint": "^5.11.0",
-      "tslint-config-prettier": "^1.15.0",
-      "typescript": "3.0.3"
-   },
-   "dependencies": {
-      "bcryptjs": "^2.4.3",
-      "graphql-import": "^0.6.0",
-      "graphql-yoga": "^1.16.2",
-      "mongodb": "3.0.8",
-      "reflect-metadata": "^0.1.12",
-      "typeorm": "0.2.7"
-   },
-   "scripts": {
-      "start": "nodemon --exec ts-node src/index.ts",
-      "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
-   }
+    "name": "new-typeorm-project",
+    "version": "0.0.1",
+    "description": "Awesome project developed with TypeORM.",
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.1",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.9.4",
+        "gql2ts": "^1.8.2",
+        "jest": "^23.5.0",
+        "nodemon": "^1.18.4",
+        "ts-jest": "^23.1.4",
+        "ts-node": "7.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-prettier": "^1.15.0",
+        "typescript": "3.0.3"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "graphql-import": "^0.6.0",
+        "graphql-yoga": "^1.16.2",
+        "mongodb": "3.0.8",
+        "reflect-metadata": "^0.1.12",
+        "typeorm": "0.2.7"
+    },
+    "scripts": {
+        "start": "nodemon --exec ts-node src/index.ts",
+        "test": "jest",
+        "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    }
 }
