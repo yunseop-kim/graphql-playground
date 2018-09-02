@@ -6,6 +6,7 @@
         "@types/bcryptjs": "^2.4.1",
         "@types/jest": "^23.3.1",
         "@types/node": "^10.9.4",
+        "@types/yup": "^0.24.9",
         "gql2ts": "^1.8.2",
         "jest": "^23.5.0",
         "nodemon": "^1.18.4",
@@ -24,11 +25,12 @@
         "graphql-yoga": "^1.16.2",
         "mongodb": "3.0.8",
         "reflect-metadata": "^0.1.12",
-        "typeorm": "0.2.7"
+        "typeorm": "0.2.7",
+        "yup": "^0.26.3"
     },
     "scripts": {
         "start": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
-        "test": "NODE_ENV=test jest --detectOpenHandles",
+        "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
         "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
     },
     "jest": {
