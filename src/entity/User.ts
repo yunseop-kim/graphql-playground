@@ -5,10 +5,9 @@ export class User extends BaseEntity {
   @ObjectIdColumn()
   id!: ObjectID;
 
-  @Column()
+  @Column("varchar", { length: 255 })
   email!: string;
 
   @Column()
   password!: string;
 }
- 
