@@ -11,6 +11,7 @@
         "@types/yup": "^0.24.9",
         "gql2ts": "^1.8.2",
         "jest": "^23.5.0",
+        "jest-puppeteer": "^3.3.1",
         "nodemon": "^1.18.4",
         "ts-jest": "^23.1.4",
         "ts-node": "7.0.1",
@@ -38,6 +39,7 @@
         "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
     },
     "jest": {
+        "globalSetup": "./src/testSetup/callSetup.js",
         "transform": {
             "^.+\\.tsx?$": "ts-jest"
         },
