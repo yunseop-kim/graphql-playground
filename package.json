@@ -39,8 +39,8 @@
     },
     "scripts": {
         "start": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
-        "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
-        "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
+        "test": "NODE_ENV=test jest --detectOpenHandles --forceExit --watch",
+        "gen-schema-types": "ts-node src/scripts/createTypes.ts"
     },
     "jest": {
         "globalSetup": "./src/testSetup/callSetup.js",
