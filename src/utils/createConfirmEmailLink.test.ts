@@ -3,9 +3,8 @@ import Redis = require("ioredis");
 import { createConfirmEmailLink } from "./createConfirmEmailLink";
 import { createTypeormConn } from "./createTypeOrmConnections";
 import { User } from "../entity/User";
-import { ObjectID } from "typeorm";
 
-let userId: ObjectID;
+let userId: string;
 const redis = new Redis();
 beforeAll(async () => {
   await createTypeormConn();
@@ -16,9 +15,9 @@ beforeAll(async () => {
   userId = user.id;
 });
 
-describe("test createConfirmEmailLink", () => {
+describe("test createConfirmEmailLink", async () => {
   test("Make sure it confirms user and clears key in redis", async () => {
-    const url = createConfirmEmailLink(
+    const url = await createConfirmEmailLink(
       process.env.TEST_HOST as string,
       userId,
       redis
@@ -27,14 +26,16 @@ describe("test createConfirmEmailLink", () => {
     const response = await fetch(url);
     const text = await response.text();
     expect(text).toEqual("ok");
-    const user: User = (await User.findOne({ where: { id: userId } })) as User;
+    const user: User = (await User.findOne({
+      where: { id: userId }
+    })) as User;
     expect(user.confirmed).toBeTruthy();
     const chunks = url.split("/");
     const key = chunks[chunks.length - 1];
-    const value = redis.get(key);
-    expect(value).toBeNull();
+    const value = await redis.get(key);
+    expect(value).toBeNull()
   });
-  
+
   test("sends invalid back if bad id sent", async () => {
     const response = await fetch(`${process.env.TEST_HOST}/confirm/12332`);
     const text = await response.text();
