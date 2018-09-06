@@ -1,7 +1,9 @@
 [{
         "name": "development",
-        "type": "mongodb",
+        "type": "mysql",
         "host": "localhost",
+        "username": "root",
+        "password": "1111",
         "database": "graphql-ts-server-boilerplate",
         "synchronize": true,
         "logging": true,
@@ -22,8 +24,10 @@
     },
     {
         "name": "test",
-        "type": "mongodb",
+        "type": "mysql",
         "host": "localhost",
+        "username": "root",
+        "password": "1111",
         "database": "graphql-ts-server-boilerplate-test",
         "synchronize": true,
         "logging": false,
