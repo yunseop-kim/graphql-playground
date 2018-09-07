@@ -10,6 +10,8 @@ import {
   invalidEmail,
   passwordNotLongEnough
 } from "./errorMessage";
+import { sendEmail } from "../../utils/sendEmail";
+import { v4 } from 'uuid';
 
 const schema = yup.object().shape({
   email: yup
@@ -49,12 +51,15 @@ export const resolvers: ResolverMap = {
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = User.create({
+        id: v4(),
         email,
         password: hashedPassword
       });
 
       await user.save();
-      await createConfirmEmailLink(url, user.id, redis);
+      if (process.env.NODE_ENV !== 'test') {
+        await sendEmail(email, await createConfirmEmailLink(url, user.id, redis));
+      }
       return null;
     }
   }
