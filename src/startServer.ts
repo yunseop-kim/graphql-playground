@@ -6,7 +6,7 @@ import { confirmEmail } from "./routes/confirmEmail";
 import { genSchema } from "./utils/genSchema";
 export const startServer = async () => {
   const props: any = {
-    schema: genSchema,
+    schema: genSchema(),
     context: ({ request }: any) => ({
       redis,
       url: `${request.protocol}://${request.get("host")}`
