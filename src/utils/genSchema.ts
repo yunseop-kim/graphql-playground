@@ -1,9 +1,7 @@
 import { importSchema } from "graphql-import";
-
 import * as path from "path";
 import * as fs from "fs";
 import { mergeSchemas, makeExecutableSchema } from "graphql-tools";
-// tslint:disable-next-line:no-implicit-dependencies
 import { GraphQLSchema } from "graphql";
 
 export const genSchema = () => {
